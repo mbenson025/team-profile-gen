@@ -43,29 +43,30 @@ const questions = () => {
     });
 };
 
-//engineer array
-// Engineer: [
-//   {
-//     type: 'input',
-//     name: 'engineerName',
-//     message: "Enter the engineer's name",
-//   },
-//   {
-//     type: 'input',
-//     name: 'engineerId',
-//     message: "Enter the engineer's ID",
-//   },
-//   {
-//     type: 'input',
-//     name: 'engineerEmail',
-//     message: 'Enter the email for this engineer',
-//   },
-//   {
-//     type: 'input',
-//     name: 'engineerGitHub',
-//     message: 'Enter a github username for this engineer',
-//   },
-// ]
+const engineerPrompt = () => {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'engineerName',
+      message: "Enter the engineer's name",
+    },
+    {
+      type: 'input',
+      name: 'engineerId',
+      message: "Enter the engineer's ID",
+    },
+    {
+      type: 'input',
+      name: 'engineerEmail',
+      message: 'Enter the email for this engineer',
+    },
+    {
+      type: 'input',
+      name: 'engineerGitHub',
+      message: 'Enter a github username for this engineer',
+    },
+  ]);
+};
 
 //intern array
 // Intern: [
@@ -92,14 +93,27 @@ const questions = () => {
 // ]
 
 const nextQuestion = () => {
-  inquirer.prompt([
-    {
-      type: 'list',
-      name: 'teamChoice',
-      message: 'Would you like to add another member to this team?',
-      choices: ['Engineer', 'Intern', 'Finished'],
-    },
-  ]);
+  inquirer
+    .prompt([
+      {
+        type: 'list',
+        name: 'teamChoice',
+        message: 'Would you like to add another member to this team?',
+        choices: ['Engineer', 'Intern', 'Finished'],
+      },
+    ])
+    .then((choice) => {
+      console.log(choice.teamChoice);
+      if (choice.teamChoice == 'Engineer') {
+        return engineerPrompt();
+      }
+      if (choice.teamChoice == 'Intern') {
+        return internPrompt();
+      }
+      if (choice.teamChoice == 'Finished') {
+        return createTeam();
+      }
+    });
 };
 
 questions();
