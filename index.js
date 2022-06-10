@@ -2,11 +2,13 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
 
-//class paths
+//type paths
 const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
+
+let teamArr = [];
 
 const questions = () => {
   inquirer
@@ -19,12 +21,12 @@ const questions = () => {
       {
         type: 'input',
         name: 'managerId',
-        message: 'Enter the ID for the manager',
+        message: 'What is the ID for the manager?',
       },
       {
         type: 'input',
         name: 'managerEmail',
-        message: 'Enter the email for the manager',
+        message: "What is the manager's email?",
       },
       {
         type: 'input',
@@ -39,7 +41,7 @@ const questions = () => {
         userInput.managerEmail,
         userInput.officeNumber
       );
-      return nextQuestion(), console.log(manager);
+      return nextQuestion(), teamArr.push(manager), console.log(teamArr);
     });
 };
 
@@ -59,12 +61,12 @@ const engineerPrompt = () => {
       {
         type: 'input',
         name: 'engineerEmail',
-        message: 'Enter the email for this engineer',
+        message: 'Enter an email for this engineer',
       },
       {
         type: 'input',
         name: 'engineerGitHub',
-        message: 'Enter a github username for this engineer',
+        message: 'What is the github username for this engineer',
       },
     ])
     .then((userInput) => {
@@ -74,7 +76,7 @@ const engineerPrompt = () => {
         userInput.engineerEmail,
         userInput.engineerGitHub
       );
-      return nextQuestion(), console.log(engineer);
+      return nextQuestion(), teamArr.push(engineer), console.log(teamArr);
     });
 };
 
@@ -99,7 +101,7 @@ const internPrompt = () => {
       {
         type: 'input',
         name: 'internSchool',
-        message: 'Enter a school for this intern',
+        message: 'What school did the intern graduate from?',
       },
     ])
     .then((userInput) => {
@@ -109,7 +111,7 @@ const internPrompt = () => {
         userInput.internEmail,
         userInput.internSchool
       );
-      return nextQuestion(), console.log(intern);
+      return nextQuestion(), teamArr.push(intern), console.log(teamArr);
     });
 };
 
