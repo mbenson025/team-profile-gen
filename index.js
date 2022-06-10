@@ -39,7 +39,7 @@ const questions = () => {
         userInput.managerEmail,
         userInput.officeNumber
       );
-      console.log(manager);
+      return nextQuestion();
     });
 };
 
@@ -90,5 +90,16 @@ const questions = () => {
 //     message: 'Enter a school for this intern',
 //   },
 // ]
+
+const nextQuestion = () => {
+  inquirer.prompt([
+    {
+      type: 'list',
+      name: 'teamChoice',
+      message: 'Would you like to add another member to this team?',
+      choices: ['Engineer', 'Intern', 'Finished'],
+    },
+  ]);
+};
 
 questions();
