@@ -68,29 +68,30 @@ const engineerPrompt = () => {
   ]);
 };
 
-//intern array
-// Intern: [
-//   {
-//     type: 'input',
-//     name: 'internName',
-//     message: "Enter the intern's name",
-//   },
-//   {
-//     type: 'input',
-//     name: 'internId',
-//     message: "Enter the intern's ID",
-//   },
-//   {
-//     type: 'input',
-//     name: 'internEmail',
-//     message: 'Enter the email for this intern',
-//   },
-//   {
-//     type: 'input',
-//     name: 'internSchool',
-//     message: 'Enter a school for this intern',
-//   },
-// ]
+const internPrompt = () => {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'internName',
+      message: "Enter the intern's name",
+    },
+    {
+      type: 'input',
+      name: 'internId',
+      message: "Enter the intern's ID",
+    },
+    {
+      type: 'input',
+      name: 'internEmail',
+      message: 'Enter the email for this intern',
+    },
+    {
+      type: 'input',
+      name: 'internSchool',
+      message: 'Enter a school for this intern',
+    },
+  ]);
+};
 
 const nextQuestion = () => {
   inquirer
