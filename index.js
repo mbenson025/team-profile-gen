@@ -39,58 +39,78 @@ const questions = () => {
         userInput.managerEmail,
         userInput.officeNumber
       );
-      return nextQuestion();
+      return nextQuestion(), console.log(manager);
     });
 };
 
 const engineerPrompt = () => {
-  inquirer.prompt([
-    {
-      type: 'input',
-      name: 'engineerName',
-      message: "Enter the engineer's name",
-    },
-    {
-      type: 'input',
-      name: 'engineerId',
-      message: "Enter the engineer's ID",
-    },
-    {
-      type: 'input',
-      name: 'engineerEmail',
-      message: 'Enter the email for this engineer',
-    },
-    {
-      type: 'input',
-      name: 'engineerGitHub',
-      message: 'Enter a github username for this engineer',
-    },
-  ]);
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'engineerName',
+        message: "Enter the engineer's name",
+      },
+      {
+        type: 'input',
+        name: 'engineerId',
+        message: "Enter the engineer's ID",
+      },
+      {
+        type: 'input',
+        name: 'engineerEmail',
+        message: 'Enter the email for this engineer',
+      },
+      {
+        type: 'input',
+        name: 'engineerGitHub',
+        message: 'Enter a github username for this engineer',
+      },
+    ])
+    .then((userInput) => {
+      const engineer = new Engineer(
+        userInput.engineerName,
+        userInput.engineerId,
+        userInput.engineerEmail,
+        userInput.engineerGitHub
+      );
+      return nextQuestion(), console.log(engineer);
+    });
 };
 
 const internPrompt = () => {
-  inquirer.prompt([
-    {
-      type: 'input',
-      name: 'internName',
-      message: "Enter the intern's name",
-    },
-    {
-      type: 'input',
-      name: 'internId',
-      message: "Enter the intern's ID",
-    },
-    {
-      type: 'input',
-      name: 'internEmail',
-      message: 'Enter the email for this intern',
-    },
-    {
-      type: 'input',
-      name: 'internSchool',
-      message: 'Enter a school for this intern',
-    },
-  ]);
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'internName',
+        message: "Enter the intern's name",
+      },
+      {
+        type: 'input',
+        name: 'internId',
+        message: "Enter the intern's ID",
+      },
+      {
+        type: 'input',
+        name: 'internEmail',
+        message: 'Enter the email for this intern',
+      },
+      {
+        type: 'input',
+        name: 'internSchool',
+        message: 'Enter a school for this intern',
+      },
+    ])
+    .then((userInput) => {
+      const intern = new Intern(
+        userInput.internName,
+        userInput.internId,
+        userInput.internEmail,
+        userInput.internSchool
+      );
+      return nextQuestion(), console.log(intern);
+    });
 };
 
 const nextQuestion = () => {
