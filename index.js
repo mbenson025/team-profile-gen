@@ -211,13 +211,13 @@ const nextQuestion = () => {
     ])
     .then((choice) => {
       console.log(choice.teamChoice);
-      if (choice.teamChoice == 'Engineer') {
+      if (choice.teamChoice === 'Engineer') {
         return engineerPrompt();
       }
-      if (choice.teamChoice == 'Intern') {
+      if (choice.teamChoice === 'Intern') {
         return internPrompt();
       }
-      if (choice.teamChoice == 'Finished') {
+      if (choice.teamChoice === 'Finished') {
         return createTeam(teamArr);
       }
     });
