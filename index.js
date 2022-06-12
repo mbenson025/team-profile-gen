@@ -1,6 +1,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const path = require('path');
+const createTeam = require('./src/createTeam');
 
 //type paths
 const Employee = require('./lib/Employee');
@@ -218,7 +219,7 @@ const nextQuestion = () => {
         return internPrompt();
       }
       if (choice.teamChoice == 'Finished') {
-        return createTeam();
+        return createTeam(teamArr);
       }
     });
 };
