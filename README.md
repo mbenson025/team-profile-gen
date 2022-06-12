@@ -8,6 +8,8 @@
 
 - [Description](#description)
 - [Installation](#installation)
+- [Usage](#usage)
+- [Demo](#demo)
 - [Tests](#tests)
 - [Questions](#questions)
 - [License](#license)
@@ -23,6 +25,20 @@ Clone Github repo to device. Install node.js and download the inquirer package d
 ```
 npm install
 ```
+
+## Usage
+
+Run the index.js file with the command-line:
+
+```
+node index
+```
+
+Answer the resulting questions to build your team.
+
+## Demo
+
+<img src="assets/appdemotpg.gif" alt="Demo of application" title="App Demo">
 
 ## Tests
 

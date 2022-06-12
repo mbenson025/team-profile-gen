@@ -69,7 +69,7 @@ const questions = () => {
         userInput.managerEmail,
         userInput.officeNumber
       );
-      return nextQuestion(), teamArr.push(manager), console.log(teamArr);
+      return nextQuestion(), teamArr.push(manager);
     });
 };
 
@@ -132,7 +132,7 @@ const engineerPrompt = () => {
         userInput.engineerEmail,
         userInput.engineerGitHub
       );
-      return nextQuestion(), teamArr.push(engineer), console.log(teamArr);
+      return nextQuestion(), teamArr.push(engineer);
     });
 };
 
@@ -195,7 +195,7 @@ const internPrompt = () => {
         userInput.internEmail,
         userInput.internSchool
       );
-      return nextQuestion(), teamArr.push(intern), console.log(teamArr);
+      return nextQuestion(), teamArr.push(intern);
     });
 };
 
@@ -210,7 +210,6 @@ const nextQuestion = () => {
       },
     ])
     .then((choice) => {
-      console.log(choice.teamChoice);
       if (choice.teamChoice === 'Engineer') {
         return engineerPrompt();
       }
