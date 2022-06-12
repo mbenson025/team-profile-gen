@@ -1,3 +1,5 @@
+const teamHTML = require('./teamHTML');
+
 const managerGen = (manager) => {
   return `
     <div class="col-lg-3 col-md-4 col-sm-6">
@@ -8,7 +10,7 @@ const managerGen = (manager) => {
             </div>
             <div class="card-body bg-light p-3">
               <ul class="list-group">
-                <li class="list-group-item">${manager.id}</li>
+                <li class="list-group-item">ID: ${manager.id}</li>
                 <li class="list-group-item">
                   Email: <a href="mailto:${manager.email}">${manager.email}</a>
                 </li>
@@ -25,7 +27,7 @@ const engineerGen = (engineer) => {
   <div class="col-lg-3 col-md-4 col-sm-6">
   <div class="my-4 card">
     <div class="card-header bg-dark text-white">
-      <h3 class="card-title">${engineer.name}</h3>
+      <h3 class="card-title">ID: ${engineer.name}</h3>
       <h4 class="card-subtitle">Engineer</h4>
     </div>
     <div class="card-body bg-light p-3">
@@ -83,7 +85,9 @@ const createTeam = (teamArr) => {
       teamList.push(internGen(teamArr[i]));
     }
   }
-  console.log(teamList.join(''));
+  let teamCards = teamList.join('');
+  teamHTML(teamCards);
+  console.log(teamHTML);
 };
 
 module.exports = createTeam;
