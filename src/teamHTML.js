@@ -14,7 +14,7 @@ const teamHTML = (teamCards) => {
   <body>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-13 jumbotron mb-3 bg-primary" style="color: white">
+        <div class="col-13 jumbotron mb-3 bg-primary text-white">
           <h1 class="text-center">My Team</h1>
         </div>
       </div>

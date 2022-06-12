@@ -76,24 +76,25 @@ const createTeam = (teamArr) => {
   for (var i = 0; i < teamArr.length; i++) {
     const role = teamArr[i].getRole();
 
-    if (role == 'Manager') {
+    if (role === 'Manager') {
       teamList.push(managerGen(teamArr[i]));
     }
-    if (role == 'Engineer') {
+    if (role === 'Engineer') {
       teamList.push(engineerGen(teamArr[i]));
     }
-    if (role == 'Intern') {
+    if (role === 'Intern') {
       teamList.push(internGen(teamArr[i]));
     }
   }
   let teamCards = teamList.join('');
   let fullHTML = teamHTML(teamCards);
   writeFile(fullHTML);
-  // fs.writeFile('../dist/exampleTeam.html', teamHTML(teamCards));
 };
 
 function writeFile(fullHTML) {
-  fs.writeFileSync('./dist/exampleTeam.html', fullHTML);
+  fs.writeFileSync('./dist/exampleTeam.html', fullHTML, (err) => {
+    err ? console.error(err) : console.log('Team Created');
+  });
 }
 
 module.exports = createTeam;

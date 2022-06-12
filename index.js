@@ -3,8 +3,7 @@ const inquirer = require('inquirer');
 const path = require('path');
 const createTeam = require('./src/createTeam');
 
-//type paths
-const Employee = require('./lib/Employee');
+//role paths
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager');
@@ -220,7 +219,6 @@ const nextQuestion = () => {
       }
       if (choice.teamChoice == 'Finished') {
         return createTeam(teamArr);
-        // fs.writeFile('../dist/exampleTeam.html', teamHTML(teamCards))
       }
     });
 };
