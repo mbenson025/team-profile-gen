@@ -20,6 +20,32 @@ const managerGen = (manager) => {
   `;
 };
 
+const engineerGen = (engineer) => {
+  return `
+  <div class="col-lg-3 col-md-4 col-sm-6">
+  <div class="my-4 card">
+    <div class="card-header bg-dark text-white">
+      <h3 class="card-title">${engineer.name}</h3>
+      <h4 class="card-subtitle">Engineer</h4>
+    </div>
+    <div class="card-body bg-light p-3">
+      <ul class="list-group">
+        <li class="list-group-item">${engineer.id}</li>
+        <li class="list-group-item">
+          Email:
+          <a href="mailto:${engineer.email}">${engineer.email}</a>
+        </li>
+        <li class="list-group-item">
+          GitHub:
+          <a href="https://github.com/${engineer.github}" target="_blank">${engineer.github}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+  `;
+};
+
 const createTeam = (teamArr) => {
   teamList = [];
   for (var i = 0; i < teamArr.length; i++) {
@@ -29,10 +55,10 @@ const createTeam = (teamArr) => {
       teamList.push(managerGen(teamArr[i]));
     }
     if (role == 'Engineer') {
-      teamList.push(managerGen(teamArr[i]));
+      teamList.push(engineerGen(teamArr[i]));
     }
     if (role == 'Intern') {
-      teamList.push(managerGen(teamArr[i]));
+      teamList.push(internGen(teamArr[i]));
     }
   }
   console.log(teamList.join(''));
