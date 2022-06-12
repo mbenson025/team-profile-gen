@@ -220,6 +220,7 @@ const nextQuestion = () => {
       }
       if (choice.teamChoice == 'Finished') {
         return createTeam(teamArr);
+        // fs.writeFile('../dist/exampleTeam.html', teamHTML(teamCards))
       }
     });
 };

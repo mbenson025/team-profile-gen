@@ -1,4 +1,5 @@
 const teamHTML = require('./teamHTML');
+const fs = require('fs');
 
 const managerGen = (manager) => {
   return `
@@ -27,7 +28,7 @@ const engineerGen = (engineer) => {
   <div class="col-lg-3 col-md-4 col-sm-6">
   <div class="my-4 card">
     <div class="card-header bg-dark text-white">
-      <h3 class="card-title">ID: ${engineer.name}</h3>
+      <h3 class="card-title">${engineer.name}</h3>
       <h4 class="card-subtitle">Engineer</h4>
     </div>
     <div class="card-body bg-light p-3">
@@ -86,8 +87,13 @@ const createTeam = (teamArr) => {
     }
   }
   let teamCards = teamList.join('');
-  teamHTML(teamCards);
-  console.log(teamHTML);
+  let fullHTML = teamHTML(teamCards);
+  writeFile(fullHTML);
+  // fs.writeFile('../dist/exampleTeam.html', teamHTML(teamCards));
 };
+
+function writeFile(fullHTML) {
+  fs.writeFileSync('./dist/exampleTeam.html', fullHTML);
+}
 
 module.exports = createTeam;
